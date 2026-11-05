@@ -1,0 +1,79 @@
+@use '../../styles/variables' as *;
+
+.button {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: 0.9rem 1.75rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 999px;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    color $transition-base,
+    border-color $transition-base;
+
+  // The "fill from bottom" hover layer
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    transform: translateY(101%);
+    transition: transform $transition-base;
+  }
+
+  &:hover::before {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+
+.arrow {
+  display: inline-block;
+  transition: transform $transition-base;
+
+  .button:hover & {
+    transform: translate(3px, -3px);
+  }
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: 1px solid var(--accent);
+
+  &::before {
+    background: var(--text);
+  }
+
+  &:hover {
+    border-color: var(--text);
+  }
+}
+
+.outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+
+  &::before {
+    background: var(--accent);
+  }
+
+  &:hover {
+    color: var(--accent-contrast);
+    border-color: var(--accent);
+  }
+}

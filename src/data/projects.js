@@ -1,0 +1,76 @@
+export const projects = [
+  {
+    id: 1,
+    slug: 'project-one',
+    title: 'Project One',
+    shortDescription: 'A full-stack web app with authentication, dashboards and real-time updates.',
+    description:
+      'A longer description for the project detail page. Explain what the project does, who it is for and why you built it.',
+    tech: ['Next.js', 'Node.js', 'MongoDB', 'SCSS'],
+    year: '2026',
+    role: 'Full Stack Developer',
+    liveUrl: 'https://example.com',
+    githubUrl: 'https://github.com/yourusername/project-one',
+    image: null, // later: '/projects/project-one.png'
+    color: '#c6ff3d', // placeholder gradient color
+    features: [
+      'Secure sign-up and login with JWT authentication',
+      'Dashboard with live charts and an activity feed',
+      'Real-time updates using WebSockets',
+      'Fully responsive on mobile, tablet and desktop',
+    ],
+  },
+  {
+    id: 2,
+    slug: 'project-two',
+    title: 'Project Two',
+    shortDescription: 'An AI-powered chat tool that streams responses in real time.',
+    description:
+      'A longer description for the project detail page. Mention the main challenges and how you solved them.',
+    tech: ['React', 'Express', 'Socket.IO', 'OpenAI API'],
+    year: '2026',
+    role: 'Full Stack Developer',
+    liveUrl: 'https://example.com',
+    githubUrl: 'https://github.com/yourusername/project-two',
+    image: null,
+    color: '#8b5cf6',
+    featured: true,
+  },
+  {
+    id: 3,
+    slug: 'project-three',
+    title: 'Project Three',
+    shortDescription: 'A team collaboration platform with tasks, boards and live sync.',
+    description:
+      'A longer description for the project detail page. Add the results, such as users, performance or features shipped.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Redux'],
+    year: '2025',
+    role: 'Frontend Developer',
+    liveUrl: 'https://example.com',
+    githubUrl: 'https://github.com/yourusername/project-three',
+    image: null,
+    color: '#ff5a1f',
+    featured: true,
+  },
+  {
+    id: 4,
+    slug: 'project-four',
+    title: 'Project Four',
+    shortDescription: 'A clean e-commerce storefront with cart, filters and payments.',
+    description:
+      'A longer description for the project detail page. Talk about the design decisions and the tech choices.',
+    tech: ['Next.js', 'Stripe', 'Tailwind', 'PostgreSQL'],
+    year: '2025',
+    role: 'Full Stack Developer',
+    liveUrl: 'https://example.com',
+    githubUrl: 'https://github.com/yourusername/project-four',
+    image: null,
+    color: '#22d3ee',
+    features: [
+      'Secure sign-up and login with JWT authentication',
+      'Dashboard with live charts and an activity feed',
+      'Real-time updates using WebSockets',
+      'Fully responsive on mobile, tablet and desktop',
+    ],
+  },
+];

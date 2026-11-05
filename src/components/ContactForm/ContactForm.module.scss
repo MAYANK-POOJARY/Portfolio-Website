@@ -1,0 +1,83 @@
+@use '../../styles/variables' as *;
+
+$danger: #ff6b6b;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  label {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font: inherit;
+    color: var(--text);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: border-color $transition-fast;
+
+    &::placeholder {
+      color: color-mix(in srgb, var(--text-muted) 60%, transparent);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    &[aria-invalid='true'] {
+      border-color: $danger;
+    }
+  }
+
+  textarea {
+    min-height: 160px;
+    resize: vertical;
+  }
+}
+
+.error {
+  font-size: 0.85rem;
+  color: $danger;
+}
+
+// Hidden off-screen (not display:none, because some bots skip those)
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-6;
+}
+
+.success {
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+.failure {
+  font-size: 0.95rem;
+  color: $danger;
+}

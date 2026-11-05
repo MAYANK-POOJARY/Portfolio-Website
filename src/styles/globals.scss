@@ -1,0 +1,91 @@
+@use 'reset';
+@use 'variables' as *;
+
+:root {
+  // Colors
+  --bg: #0a0a0a;
+  --bg-elevated: #111111;
+  --bg-card: #161616;
+  --border: #262626;
+
+  --text: #f2f2f2;
+  --text-muted: #8a8a8a;
+
+  --accent: #c6ff3d; // neon lime. Change this to restyle the whole site
+  --accent-contrast: #0a0a0a; // text color used on top of the accent
+
+  // Fonts (set in layout.js)
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+}
+
+html {
+  background-color: var(--bg);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: clamp(3rem, 9vw, 8rem);
+}
+
+h2 {
+  font-size: clamp(2.25rem, 6vw, 5rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+p {
+  color: var(--text-muted);
+  max-width: 65ch;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+// Custom dark scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+// Keyboard focus (accessibility)
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+// Hide the normal cursor when the custom cursor is active (mouse devices only)
+.has-custom-cursor,
+.has-custom-cursor * {
+  cursor: none !important;
+}

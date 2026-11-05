@@ -1,0 +1,20 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.projects {
+  padding-block: $space-24;
+}
+
+.inner {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-8;
+
+  @include respond('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

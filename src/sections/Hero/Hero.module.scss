@@ -1,0 +1,175 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+
+@keyframes scrollLine {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  animation: fadeUp 0.9s $ease-out forwards;
+  animation-delay: var(--delay, 0s);
+  animation-play-state: paused; // waits for the preloader
+
+  // The preloader sets data-loaded on <html> when it finishes
+  :global(html[data-loaded='true']) & {
+    animation-play-state: running;
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 120px;
+  padding-bottom: $space-8;
+  overflow: hidden;
+}
+
+// ---------- Background ----------
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.35;
+  mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  top: -20%;
+  right: -15%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 900px;
+  max-height: 900px;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--accent) 22%, transparent),
+    transparent 65%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+// ---------- Content ----------
+.inner {
+  @include container;
+  position: relative;
+  z-index: $z-base;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $space-6;
+  margin-block: auto;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.intro {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.tagline {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  max-width: 45ch;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-4;
+  margin-top: $space-4;
+}
+
+// ---------- Bottom row ----------
+.bottom {
+  @include container;
+  position: relative;
+  z-index: $z-base;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.scroll {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  i {
+    display: block;
+    width: 1px;
+    height: 48px;
+    background: var(--accent);
+    animation: scrollLine 2s $ease-out infinite;
+  }
+}

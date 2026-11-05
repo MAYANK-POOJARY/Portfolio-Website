@@ -1,0 +1,144 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: $z-nav;
+
+  // The blurred background lives on a pseudo-element on purpose:
+  // putting backdrop-filter on the header itself would break the
+  // fullscreen mobile menu (position: fixed inside it).
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+
+  &.scrolled::before {
+    opacity: 1;
+  }
+}
+
+.inner {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.logo {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+
+  span {
+    color: var(--accent);
+  }
+}
+
+// ---------- Desktop ----------
+.links {
+  display: none;
+
+  @include respond('md') {
+    display: flex;
+    align-items: center;
+    gap: $space-8;
+  }
+}
+
+.link {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color $transition-fast;
+
+  &:hover {
+    color: var(--text);
+  }
+}
+
+.cta {
+  display: none;
+
+  @include respond('md') {
+    display: block;
+  }
+}
+
+// ---------- Mobile ----------
+.burger {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: $space-2;
+
+  @include respond('md') {
+    display: none;
+  }
+
+  span {
+    width: 28px;
+    height: 2px;
+    background: var(--text);
+    transition: transform $transition-base;
+  }
+
+  &.open span:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  &.open span:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+}
+
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $space-6;
+  padding: $container-padding;
+  background: var(--bg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $transition-base;
+
+  @include respond('md') {
+    display: none;
+  }
+}
+
+.menuOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobileLink {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 12vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: var(--accent);
+  }
+}

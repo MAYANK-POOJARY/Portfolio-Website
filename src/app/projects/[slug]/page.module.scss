@@ -1,0 +1,238 @@
+@use '../../../styles/mixins' as *;
+@use '../../../styles/variables' as *;
+
+.page {
+  padding-top: 160px; // clears the fixed navbar
+  padding-bottom: $space-24;
+}
+
+.inner {
+  @include container;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: $space-12;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color $transition-fast;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+// ---------- Header ----------
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $space-6;
+
+  h1 {
+    font-size: clamp(2.75rem, 8vw, 7rem);
+  }
+}
+
+.meta {
+  display: flex;
+  gap: $space-6;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.lead {
+  max-width: 55ch;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-4;
+  margin-top: $space-4;
+}
+
+// ---------- Visual ----------
+.visual {
+  position: relative;
+  margin-top: $space-16;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+
+  // colored glow from the project's `color`
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 30% 25%,
+      color-mix(in srgb, var(--project-color) 50%, transparent),
+      transparent 65%
+    );
+  }
+}
+
+.number {
+  position: absolute;
+  left: $space-8;
+  bottom: $space-6;
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 18vw, 16rem);
+  font-weight: 700;
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--project-color) 70%, transparent);
+}
+
+.image {
+  object-fit: cover;
+}
+
+// ---------- Content ----------
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-12;
+  margin-top: $space-16;
+
+  @include respond('lg') {
+    grid-template-columns: 1.6fr 1fr;
+    gap: $space-24;
+    align-items: start;
+  }
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+
+  h3 {
+    color: var(--text);
+  }
+
+  p {
+    max-width: none;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  li {
+    position: relative;
+    padding-left: $space-6;
+    color: var(--text-muted);
+
+    &::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+  }
+}
+
+.sidebar {
+  padding: $space-8;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+
+  @include respond('lg') {
+    position: sticky;
+    top: 120px;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+
+  > div {
+    padding-bottom: $space-6;
+    border-bottom: 1px solid var(--border);
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  dt {
+    margin-bottom: $space-2;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  dd {
+    color: var(--text);
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+
+  li {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+}
+
+// ---------- Next project ----------
+.next {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  margin-top: $space-24;
+  padding-top: $space-12;
+  border-top: 1px solid var(--border);
+
+  &:hover .nextTitle {
+    color: var(--accent);
+  }
+
+  &:hover i {
+    transform: translateX(12px);
+  }
+}
+
+.nextLabel {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.nextTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transition: color $transition-base;
+
+  i {
+    display: inline-block;
+    font-style: normal;
+    transition: transform $transition-base;
+  }
+}

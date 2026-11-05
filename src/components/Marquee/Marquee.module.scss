@@ -1,0 +1,63 @@
+@use '../../styles/variables' as *;
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  padding-block: $space-8;
+  border-block: 1px solid var(--border);
+  user-select: none;
+
+  &:hover .track {
+    animation-play-state: paused;
+  }
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.group {
+  display: flex;
+  flex-shrink: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $space-8;
+    padding-right: $space-8;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-muted); // outlined text
+
+    // every second word is filled
+    &:nth-child(even) {
+      color: var(--accent);
+      -webkit-text-stroke: 0;
+    }
+
+    span {
+      font-size: 0.4em;
+      color: var(--accent);
+      -webkit-text-stroke: 0;
+    }
+  }
+}
