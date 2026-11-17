@@ -27,11 +27,12 @@ export default function About() {
           </Reveal>
         </div>
 
-        <ul className={styles.stats}>
-          {profile.stats.map((stat, i) => (
-            <Reveal as="li" key={stat.label} delay={i * 0.1}>
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
+        <ul className={styles.principles} aria-label="How I work">
+          {profile.principles.map((principle, i) => (
+            <Reveal as="li" key={principle.title} delay={i * 0.1}>
+              <span className={styles.principleIndex}>0{i + 1}</span>
+              <strong>{principle.title}</strong>
+              <span className={styles.principleDescription}>{principle.description}</span>
             </Reveal>
           ))}
         </ul>

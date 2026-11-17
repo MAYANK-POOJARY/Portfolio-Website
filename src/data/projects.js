@@ -12,7 +12,7 @@ export const projects = [
     liveUrl: 'https://example.com',
     githubUrl: 'https://github.com/yourusername/project-one',
     image: null, // later: '/projects/project-one.png'
-    color: '#c6ff3d', // placeholder gradient color
+    color: '#f08a66', // visual accent only
     features: [
       'Secure sign-up and login with JWT authentication',
       'Dashboard with live charts and an activity feed',
@@ -33,7 +33,7 @@ export const projects = [
     liveUrl: 'https://example.com',
     githubUrl: 'https://github.com/yourusername/project-two',
     image: null,
-    color: '#8b5cf6',
+    color: '#93b8c8',
     featured: true,
   },
   {
@@ -49,7 +49,7 @@ export const projects = [
     liveUrl: 'https://example.com',
     githubUrl: 'https://github.com/yourusername/project-three',
     image: null,
-    color: '#ff5a1f',
+    color: '#c2a5b8',
     featured: true,
   },
   {
@@ -65,7 +65,7 @@ export const projects = [
     liveUrl: 'https://example.com',
     githubUrl: 'https://github.com/yourusername/project-four',
     image: null,
-    color: '#22d3ee',
+    color: '#d5b875',
     features: [
       'Secure sign-up and login with JWT authentication',
       'Dashboard with live charts and an activity feed',

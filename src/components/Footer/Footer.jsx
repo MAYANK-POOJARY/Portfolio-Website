@@ -49,20 +49,14 @@ export default async function Footer() {
           <div>
             <h4 className={styles.colTitle}>Socials</h4>
             <ul className={styles.list}>
-              {socials.filter((social) => !social.url.includes('yourusername')).map((social) => {
-                const isMail = social.url.startsWith('mailto:');
-                return (
-                  <li key={social.label}>
-                    <a
-                      href={social.url}
-                      className={styles.listLink}
-                      {...(isMail ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
-                    >
-                      {social.label} ↗
-                    </a>
-                  </li>
-                );
-              })}
+              {socials.filter((social) => !social.url.startsWith('mailto:')).map((social) => (
+                <li key={social.label}>
+                  <a href={social.url} className={styles.listLink} target="_blank" rel="noopener noreferrer">
+                    <span>{social.label} ↗</span>
+                    <small>{social.handle}</small>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

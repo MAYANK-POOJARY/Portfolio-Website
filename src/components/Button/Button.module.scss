@@ -77,3 +77,13 @@
     border-color: var(--accent);
   }
 }
+
+.text {
+  padding-inline: .5rem;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+}
+
+.text::before { display: none; }
+.text:hover { color: var(--accent); }

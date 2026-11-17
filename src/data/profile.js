@@ -1,12 +1,12 @@
 export const profile = {
-  name: 'Your Name',
-  initials: 'YN',
+  name: 'Mayank Poojary',
+  initials: 'MP',
   role: 'Full Stack Developer',
   tagline: 'I build fast, polished and memorable web experiences.',
   location: 'Mumbai, India',
   email: 'hello@yourname.dev',
   available: true, // shows the "Available for work" badge
-  resumeUrl: '/resume.pdf', // put your file in /public/resume.pdf later
+  resumeUrl: '/resume.pdf',
 
   // About section: each string becomes one paragraph
   bio: [
@@ -15,10 +15,19 @@ export const profile = {
     'When I am not coding, I am exploring new tools, reading about design, or building side projects.',
   ],
 
-  // Small stat boxes in the About section
-  stats: [
-    { label: 'Years of experience', value: '2+' },
-    { label: 'Projects completed', value: '15+' },
-    { label: 'Technologies used', value: '20+' },
+  // About section principles, based on the bio above
+  principles: [
+    {
+      title: 'Across the stack',
+      description: 'I work with React, Next.js and Node.js, from interface to server.',
+    },
+    {
+      title: 'Details matter',
+      description: 'I care about thoughtful design and the small choices that shape the experience.',
+    },
+    {
+      title: 'Fast by design',
+      description: 'I keep performance and responsiveness in mind while building.',
+    },
   ],
 };

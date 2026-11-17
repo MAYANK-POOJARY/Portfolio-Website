@@ -9,6 +9,7 @@ export default function Button({
   type = 'button',
   onClick,
   disabled = false,
+  download = false,
 }) {
   const className = `${styles.button} ${styles[variant]}`;
 
@@ -18,6 +19,10 @@ export default function Button({
       {arrow && <span className={styles.arrow}>↗</span>}
     </>
   );
+
+  if (download) {
+    return <a href={href} className={className} download>{content}</a>;
+  }
 
   // External link (opens in a new tab)
   if (href && href.startsWith('http')) {

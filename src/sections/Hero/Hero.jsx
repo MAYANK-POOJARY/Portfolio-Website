@@ -13,9 +13,16 @@ export default function Hero() {
       {/* Background effects */}
       <div className={styles.grid} />
       <div className={styles.glow} />
-      <div className={styles.orbit} aria-hidden="true"><span /><span /><i /><b>CREATIVE<br />DEVELOPMENT</b></div>
+      <div className={styles.visual} aria-hidden="true">
+        <span className={styles.visualLabel}>FIELD NOTE&nbsp; / &nbsp;001</span>
+        <strong>FULL<br /><em>STACK</em></strong>
+        <i className={styles.visualSlash} />
+        <span className={styles.visualFoot}>IDEAS → INTERFACES</span>
+        <span className={styles.visualMark}>FS</span>
+      </div>
 
       <div className={styles.inner}>
+        <div className={styles.content}>
         {profile.available && (
           <span className={`${styles.badge} ${styles.reveal}`} style={{ '--delay': '0.1s' }}>
             <span className={styles.dot} />
@@ -43,6 +50,10 @@ export default function Hero() {
           <Button href="/#contact" variant="outline">
             Contact me
           </Button>
+          <Button href={profile.resumeUrl} download arrow variant="text">
+            Download résumé
+          </Button>
+        </div>
         </div>
       </div>
 

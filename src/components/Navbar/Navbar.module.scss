@@ -1,7 +1,7 @@
 @use '../../styles/mixins' as *;
 @use '../../styles/variables' as *;
 .header { position: fixed; z-index: $z-nav; top: 0; right: 0; left: 0; padding: .8rem 0; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
-.scrolled { border-color: var(--border); background: rgba(8,10,11,.82); backdrop-filter: blur(16px); }
+.scrolled { border-color: var(--border); background: rgba(17,19,25,.86); backdrop-filter: blur(16px); }
 .inner { @include container; display: flex; align-items: center; justify-content: space-between; min-height: 50px; }
 .logo { font: 700 1.25rem var(--font-display); letter-spacing: -.07em; }
 .logo span { color: var(--accent); }
@@ -12,13 +12,17 @@
 .link:hover::after { transform: scaleX(1); }
 .active { color: var(--text); }
 .active::after { transform: scaleX(1); }
-.cta { display: none; }
+.cta { display: none; align-items: center; gap: .9rem; }
+.resumeLink, .mobileResume { color: var(--accent); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.resumeLink span, .mobileResume span { display: inline-block; margin-left: .25rem; transition: transform .2s; }
+.resumeLink:hover span, .mobileResume:hover span { transform: translateY(3px); }
 .burger { z-index: 2; display: grid; gap: 6px; padding: 12px 4px; }
 .burger span { width: 24px; height: 1px; background: var(--text); transition: transform .25s; }
 .open span:first-child { transform: translateY(3.5px) rotate(45deg); }
 .open span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
-.mobileMenu { position: fixed; z-index: 1; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem; padding: 5rem 8vw; background: #090c0c; opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s; }
+.mobileMenu { position: fixed; z-index: 1; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem; padding: 5rem 8vw; background: #111319; opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s; }
 .menuOpen { opacity: 1; visibility: visible; }
 .mobileLink { font: 600 clamp(2.5rem, 10vw, 5rem)/1 var(--font-display); letter-spacing: -.06em; }
 .mobileLink:hover { color: var(--accent); }
-@include respond('lg') { .links { display: flex; } .cta { display: block; } .burger, .mobileMenu { display: none; } }
+.mobileResume { margin-top: 1.2rem; font-size: .85rem; }
+@include respond('lg') { .links { display: flex; } .cta { display: flex; } .burger, .mobileMenu { display: none; } }

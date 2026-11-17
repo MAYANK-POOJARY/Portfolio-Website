@@ -64,6 +64,7 @@ export default function Navbar() {
           <Button href="/#contact" variant="outline">
             Let&apos;s talk
           </Button>
+          <a href={profile.resumeUrl} className={styles.resumeLink} download>Résumé <span>↓</span></a>
         </div>
 
         {/* Hamburger (mobile only) */}
@@ -85,6 +86,7 @@ export default function Navbar() {
             {link.label}
           </Link>
         ))}
+        <a href={profile.resumeUrl} className={styles.mobileResume} download onClick={closeMenu}>Download résumé <span>↓</span></a>
       </nav>
     </header>
   );
