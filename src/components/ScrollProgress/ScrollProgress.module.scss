@@ -1,0 +1,2 @@
+.progress { position: fixed; z-index: 110; top: 0; left: 0; width: var(--scroll-progress, 0%); height: 2px; background: var(--accent); box-shadow: 0 0 12px rgba(194,255,66,.45); pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .progress { box-shadow: none; } }

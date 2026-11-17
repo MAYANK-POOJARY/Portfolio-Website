@@ -1,144 +1,24 @@
 @use '../../styles/mixins' as *;
 @use '../../styles/variables' as *;
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: $z-nav;
-
-  // The blurred background lives on a pseudo-element on purpose:
-  // putting backdrop-filter on the header itself would break the
-  // fullscreen mobile menu (position: fixed inside it).
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    opacity: 0;
-    transition: opacity $transition-base;
-  }
-
-  &.scrolled::before {
-    opacity: 1;
-  }
-}
-
-.inner {
-  @include container;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 80px;
-}
-
-.logo {
-  position: relative;
-  z-index: 2;
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-
-  span {
-    color: var(--accent);
-  }
-}
-
-// ---------- Desktop ----------
-.links {
-  display: none;
-
-  @include respond('md') {
-    display: flex;
-    align-items: center;
-    gap: $space-8;
-  }
-}
-
-.link {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  transition: color $transition-fast;
-
-  &:hover {
-    color: var(--text);
-  }
-}
-
-.cta {
-  display: none;
-
-  @include respond('md') {
-    display: block;
-  }
-}
-
-// ---------- Mobile ----------
-.burger {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: $space-2;
-
-  @include respond('md') {
-    display: none;
-  }
-
-  span {
-    width: 28px;
-    height: 2px;
-    background: var(--text);
-    transition: transform $transition-base;
-  }
-
-  &.open span:nth-child(1) {
-    transform: translateY(4px) rotate(45deg);
-  }
-
-  &.open span:nth-child(2) {
-    transform: translateY(-4px) rotate(-45deg);
-  }
-}
-
-.mobileMenu {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: $space-6;
-  padding: $container-padding;
-  background: var(--bg);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity $transition-base;
-
-  @include respond('md') {
-    display: none;
-  }
-}
-
-.menuOpen {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.mobileLink {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 12vw, 4rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  transition: color $transition-fast;
-
-  &:hover {
-    color: var(--accent);
-  }
-}
+.header { position: fixed; z-index: $z-nav; top: 0; right: 0; left: 0; padding: .8rem 0; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+.scrolled { border-color: var(--border); background: rgba(8,10,11,.82); backdrop-filter: blur(16px); }
+.inner { @include container; display: flex; align-items: center; justify-content: space-between; min-height: 50px; }
+.logo { font: 700 1.25rem var(--font-display); letter-spacing: -.07em; }
+.logo span { color: var(--accent); }
+.links { display: none; align-items: center; gap: clamp(1rem, 2vw, 2rem); }
+.link { position: relative; color: var(--text-muted); font-size: .72rem; transition: color .2s; }
+.link::after { position: absolute; right: 0; bottom: -.4rem; left: 0; height: 1px; content: ''; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .25s; }
+.link:hover { color: var(--text); }
+.link:hover::after { transform: scaleX(1); }
+.active { color: var(--text); }
+.active::after { transform: scaleX(1); }
+.cta { display: none; }
+.burger { z-index: 2; display: grid; gap: 6px; padding: 12px 4px; }
+.burger span { width: 24px; height: 1px; background: var(--text); transition: transform .25s; }
+.open span:first-child { transform: translateY(3.5px) rotate(45deg); }
+.open span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+.mobileMenu { position: fixed; z-index: 1; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem; padding: 5rem 8vw; background: #090c0c; opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s; }
+.menuOpen { opacity: 1; visibility: visible; }
+.mobileLink { font: 600 clamp(2.5rem, 10vw, 5rem)/1 var(--font-display); letter-spacing: -.06em; }
+.mobileLink:hover { color: var(--accent); }
+@include respond('lg') { .links { display: flex; } .cta { display: block; } .burger, .mobileMenu { display: none; } }

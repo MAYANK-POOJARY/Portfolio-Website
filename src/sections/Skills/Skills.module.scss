@@ -1,71 +1,14 @@
 @use '../../styles/mixins' as *;
 @use '../../styles/variables' as *;
-
-.skills {
-  padding-block: $space-24;
-}
-
-.inner {
-  @include container;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: $space-6;
-
-  @include respond('md') {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: $space-6;
-  padding: $space-8;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  transition: border-color $transition-base;
-
-  &:hover {
-    border-color: var(--accent);
-  }
-}
-
-.cardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.index {
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $space-3;
-
-  li {
-    padding: 0.5rem 1rem;
-    font-size: 0.95rem;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    transition:
-      background $transition-fast,
-      color $transition-fast,
-      border-color $transition-fast;
-
-    &:hover {
-      color: var(--accent-contrast);
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-  }
-}
+.skills { padding-block: clamp(5rem, 11vw, 10rem); }
+.inner { @include container; }
+.grid { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--border); }
+.card { padding: 1.5rem 0; border-bottom: 1px solid var(--border); transition: padding .35s ease; }
+.card:hover { padding-inline: .8rem; }
+.cardHeader { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.3rem; }
+.cardHeader h3 { font-size: clamp(1.5rem, 3vw, 2.3rem); }
+.index { color: var(--accent); font-size: .75rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .55rem; }
+.chips li { padding: .48rem .7rem; border: 1px solid var(--border); border-radius: 2px; color: var(--text-muted); font-size: .8rem; transition: border-color .25s, color .25s, background .25s; }
+.chips li:hover { border-color: var(--accent); background: rgba(194,255,66,.07); color: var(--accent); }
+@include respond('md') { .grid { grid-template-columns: repeat(2, 1fr); column-gap: 4rem; } .card { padding-block: 2rem; } }

@@ -70,14 +70,12 @@ export default async function ProjectPage({ params }) {
           <h1>{project.title}</h1>
           <p className={styles.lead}>{project.shortDescription}</p>
 
-          <div className={styles.buttons}>
-            <Button href={project.liveUrl} arrow>
-              Visit live site
-            </Button>
-            <Button href={project.githubUrl} variant="outline">
-              View code
-            </Button>
-          </div>
+          {(project.liveUrl && !project.liveUrl.includes('example.com')) || (project.githubUrl && !project.githubUrl.includes('yourusername')) ? (
+            <div className={styles.buttons}>
+              {project.liveUrl && !project.liveUrl.includes('example.com') && <Button href={project.liveUrl} arrow>Visit live site</Button>}
+              {project.githubUrl && !project.githubUrl.includes('yourusername') && <Button href={project.githubUrl} variant="outline">View code</Button>}
+            </div>
+          ) : null}
         </Reveal>
 
         {/* Big visual */}

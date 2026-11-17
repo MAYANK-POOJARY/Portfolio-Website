@@ -1,20 +1,6 @@
 @use '../../styles/mixins' as *;
 @use '../../styles/variables' as *;
-
-.projects {
-  padding-block: $space-24;
-}
-
-.inner {
-  @include container;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: $space-8;
-
-  @include respond('md') {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+.projects { padding-block: clamp(5rem, 11vw, 10rem); background: linear-gradient(180deg, transparent, rgba(255,255,255,.018) 30%, transparent); }
+.inner { @include container; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+@include respond('md') { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; } .grid > :first-child { grid-column: span 2; } }

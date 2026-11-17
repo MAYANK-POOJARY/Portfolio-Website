@@ -8,6 +8,7 @@ import Preloader from '@/components/Preloader/Preloader';
 import CustomCursor from '@/components/CustomCursor/CustomCursor';
 import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer';
+import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -60,6 +61,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body>
         <Providers>
+          <ScrollProgress />
           <SmoothScroll />
           <Preloader />
           <CustomCursor />

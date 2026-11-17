@@ -9,7 +9,7 @@ export default function Contact() {
   return (
     <section id="contact" className={styles.contact}>
       <div className={styles.inner}>
-        <SectionTitle index="05" label="Contact" title="Let's work together" />
+        <SectionTitle index="06" label="Contact" title="Let's work together" />
 
         <div className={styles.grid}>
           <Reveal className={styles.info}>
@@ -24,7 +24,7 @@ export default function Contact() {
 
             <ul className={styles.socials}>
               {socials
-                .filter((social) => !social.url.startsWith('mailto:'))
+                .filter((social) => !social.url.startsWith('mailto:') && !social.url.includes('yourusername'))
                 .map((social) => (
                   <li key={social.label}>
                     <a href={social.url} target="_blank" rel="noopener noreferrer">

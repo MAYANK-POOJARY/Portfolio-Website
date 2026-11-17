@@ -13,6 +13,7 @@ export default function Hero() {
       {/* Background effects */}
       <div className={styles.grid} />
       <div className={styles.glow} />
+      <div className={styles.orbit} aria-hidden="true"><span /><span /><i /><b>CREATIVE<br />DEVELOPMENT</b></div>
 
       <div className={styles.inner}>
         {profile.available && (
@@ -28,7 +29,7 @@ export default function Hero() {
 
         <h1 className={styles.reveal} style={{ '--delay': '0.3s' }}>
           {firstWords} <br />
-          <span className={styles.accent}>{lastWord}</span>
+          <span className={styles.accent}>{lastWord}<i aria-hidden="true">/ 01</i></span>
         </h1>
 
         <p className={`${styles.tagline} ${styles.reveal}`} style={{ '--delay': '0.5s' }}>
@@ -48,6 +49,7 @@ export default function Hero() {
       {/* Bottom row */}
       <div className={`${styles.bottom} ${styles.reveal}`} style={{ '--delay': '0.9s' }}>
         <span>{profile.location}</span>
+        <span className={styles.coordinates}>INDEPENDENT DIGITAL PRACTICE&nbsp; · &nbsp;{profile.role}</span>
         <span className={styles.scroll}>
           Scroll <i />
         </span>

@@ -46,12 +46,12 @@ export default function ProjectCard({ project, index }) {
           </ul>
 
           <div className={styles.links}>
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-              Live ↗
-            </a>
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-              GitHub ↗
-            </a>
+            {project.liveUrl && !project.liveUrl.includes('example.com') && (
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">Live ↗</a>
+            )}
+            {project.githubUrl && !project.githubUrl.includes('yourusername') && (
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            )}
           </div>
         </div>
       </article>

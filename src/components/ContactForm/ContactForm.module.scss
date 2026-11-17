@@ -1,83 +1,11 @@
-@use '../../styles/variables' as *;
-
-$danger: #ff6b6b;
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: $space-6;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: $space-2;
-
-  label {
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-
-  input,
-  textarea {
-    width: 100%;
-    padding: 1rem 1.25rem;
-    font: inherit;
-    color: var(--text);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    transition: border-color $transition-fast;
-
-    &::placeholder {
-      color: color-mix(in srgb, var(--text-muted) 60%, transparent);
-    }
-
-    &:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-
-    &[aria-invalid='true'] {
-      border-color: $danger;
-    }
-  }
-
-  textarea {
-    min-height: 160px;
-    resize: vertical;
-  }
-}
-
-.error {
-  font-size: 0.85rem;
-  color: $danger;
-}
-
-// Hidden off-screen (not display:none, because some bots skip those)
-.honeypot {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: $space-6;
-}
-
-.success {
-  font-size: 0.95rem;
-  color: var(--accent);
-}
-
-.failure {
-  font-size: 0.95rem;
-  color: $danger;
-}
+.form { display: grid; gap: 1.5rem; }
+.field { display: grid; gap: .5rem; }
+.field label { color: var(--text-muted); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+.field input, .field textarea { width: 100%; padding: .85rem 0; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; background: transparent; color: var(--text); font: inherit; resize: vertical; transition: border-color .2s; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+.field input::placeholder, .field textarea::placeholder { color: #5e6862; }
+.error { color: #ff8d78; font-size: .8rem; }
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.success { color: var(--accent); font-size: .85rem; }
+.failure { color: #ff8d78; font-size: .85rem; }
