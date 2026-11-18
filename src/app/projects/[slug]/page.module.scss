@@ -210,12 +210,15 @@
     color: var(--accent);
   }
 
-  &:hover i {
-    transform: translateX(12px);
+  &:hover .nextArrow {
+    transform: translateX(5px);
   }
 }
 
 .nextLabel {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
   font-size: 0.8rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -224,15 +227,14 @@
 
 .nextTitle {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-size: clamp(2.25rem, 7vw, 5.5rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.03em;
   transition: color $transition-base;
+}
 
-  i {
-    display: inline-block;
-    font-style: normal;
-    transition: transform $transition-base;
-  }
+.nextArrow {
+  color: var(--accent);
+  transition: transform $transition-base;
 }

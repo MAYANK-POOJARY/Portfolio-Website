@@ -4,9 +4,10 @@ export const profile = {
   role: 'Full Stack Developer',
   tagline: 'I build fast, polished and memorable web experiences.',
   location: 'Mumbai, India',
-  email: 'hello@yourname.dev',
+  email: 'poojary.mayank@gmail.com',
   available: true, // shows the "Available for work" badge
   resumeUrl: '/resume.pdf',
+  profileImg: '/profileImg.png',
 
   // About section: each string becomes one paragraph
   bio: [

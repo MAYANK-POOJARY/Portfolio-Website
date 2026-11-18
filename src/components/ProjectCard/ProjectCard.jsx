@@ -10,7 +10,7 @@ export default function ProjectCard({ project, index }) {
     <Reveal className={styles.cell} delay={(index % 2) * 0.12}>
       <article className={styles.card} style={{ '--project-color': project.color }}>
         {/* Preview area */}
-        <div className={styles.preview}>
+        <Link href={`/projects/${project.slug}`} className={styles.preview} aria-label={`Open ${project.title} case study`}>
           {project.image ? (
             <Image
               src={project.image}
@@ -22,7 +22,8 @@ export default function ProjectCard({ project, index }) {
           ) : (
             <span className={styles.number}>{number}</span>
           )}
-        </div>
+          <span className={styles.openProject}>Open case study <i>↗</i></span>
+        </Link>
 
         {/* Details */}
         <div className={styles.body}>

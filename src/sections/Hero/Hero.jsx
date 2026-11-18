@@ -36,7 +36,7 @@ export default function Hero() {
 
         <h1 className={styles.reveal} style={{ '--delay': '0.3s' }}>
           {firstWords} <br />
-          <span className={styles.accent}>{lastWord}<i aria-hidden="true">/ 01</i></span>
+          <span className={styles.accent}>{lastWord}</span>
         </h1>
 
         <p className={`${styles.tagline} ${styles.reveal}`} style={{ '--delay': '0.5s' }}>

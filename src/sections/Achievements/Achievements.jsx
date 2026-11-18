@@ -22,7 +22,7 @@ export default function Achievements() {
                 <p className={styles.event}>{item.event}</p>
                 <p>{item.description}</p>
               </div>
-              <span className={styles.serial}>0{index + 1}</span>
+              {/* <span className={styles.serial}>0{index + 1}</span> */}
             </Reveal>
           ))}
         </div>

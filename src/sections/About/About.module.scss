@@ -9,6 +9,7 @@
 .photo { position: relative; display: grid; min-height: 280px; place-items: center; overflow: hidden; border: 1px solid var(--border); background: radial-gradient(ellipse at 50% 110%, rgba(240,138,102,.17), transparent 55%), linear-gradient(135deg, #22212a, #12141a 65%); }
 .photo::before { position: absolute; inset: 12%; content: ''; border: 1px solid rgba(240,138,102,.24); border-radius: 50%; transform: scaleX(.72) rotate(-30deg); }
 .photo span { color: var(--accent); font: 700 clamp(6rem, 14vw, 12rem)/1 var(--font-display); letter-spacing: -.1em; }
+.profileImage { object-fit: cover; object-position: center 28%; }
 .principles { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 4rem; border-top: 1px solid var(--border); }
 .principles li { display: grid; grid-template-columns: 2.5rem 1fr; gap: .6rem 1rem; align-content: start; padding-top: 1rem; border-top: 1px solid var(--accent); }
 .principles strong { font: 600 clamp(1.15rem, 2vw, 1.6rem) var(--font-display); }

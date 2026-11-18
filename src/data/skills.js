@@ -1,7 +1,7 @@
 export const skills = [
   {
     category: 'Frontend',
-    items: ['JavaScript', 'React', 'Next.js', 'HTML', 'CSS / SCSS', 'Framer Motion'],
+    items: ['JavaScript', 'React', 'Next.js', 'HTML', 'CSS / SCSS', 'tailwind'],
   },
   {
     category: 'Backend',
@@ -9,10 +9,10 @@ export const skills = [
   },
   {
     category: 'Database',
-    items: ['MongoDB', 'PostgreSQL', 'Mongoose'],
+    items: ['MongoDB', 'PostgreSQL'],
   },
   {
     category: 'Tools',
-    items: ['Git & GitHub', 'VS Code', 'Postman', 'Figma', 'Vercel'],
+    items: ['Git & GitHub', 'VS Code', 'Postman', 'Docker'],
   },
 ];

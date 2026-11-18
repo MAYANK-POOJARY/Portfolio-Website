@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { site } from '@/data/site';
@@ -44,7 +45,23 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function ProjectPage({ params }) {
+export default function ProjectPage({ params }) {
+  return (
+    <Suspense
+      fallback={
+        <main className={styles.page}>
+          <div className={styles.inner}>
+            <p role="status">Loading case study…</p>
+          </div>
+        </main>
+      }
+    >
+      <ProjectPageContent params={params} />
+    </Suspense>
+  );
+}
+
+async function ProjectPageContent({ params }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
 
@@ -139,9 +156,12 @@ export default async function ProjectPage({ params }) {
         {/* Next project */}
         <Reveal>
           <Link href={`/projects/${next.slug}`} className={styles.next}>
-            <span className={styles.nextLabel}>Next project</span>
+            <span className={styles.nextLabel}>
+              <span>Next project</span>
+              <span className={styles.nextArrow} aria-hidden="true">→</span>
+            </span>
             <span className={styles.nextTitle}>
-              {next.title} <i>→</i>
+              {next.title}
             </span>
           </Link>
         </Reveal>

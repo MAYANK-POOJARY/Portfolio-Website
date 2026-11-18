@@ -3,6 +3,7 @@ import Button from '@/components/Button/Button';
 import { profile } from '@/data/profile';
 import styles from './About.module.scss';
 import Reveal from '@/components/Reveal/Reveal';
+import Image from 'next/image';
 
 export default function About() {
   return (
@@ -23,7 +24,14 @@ export default function About() {
           </Reveal>
 
           <Reveal className={styles.photo} delay={0.15}>
-            <span>{profile.initials}</span>
+            <Image
+              src={profile.profileImg}
+              alt={`Portrait of ${profile.name}`}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 400px"
+              className={styles.profileImage}
+            />
           </Reveal>
         </div>
 
