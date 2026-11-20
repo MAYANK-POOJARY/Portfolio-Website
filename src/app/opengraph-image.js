@@ -21,10 +21,10 @@ export default function OpengraphImage() {
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: 72,
-          background: '#0a0a0a',
+          background: '#111319',
           backgroundImage:
-            'radial-gradient(circle at 85% 15%, rgba(198,255,61,0.28), rgba(10,10,10,0) 55%)',
-          color: '#f2f2f2',
+            'radial-gradient(circle at 85% 15%, rgba(240,138,102,0.2), rgba(17,19,25,0) 55%)',
+          color: '#f1ede5',
         }}
       >
         {/* Top row */}
@@ -37,7 +37,7 @@ export default function OpengraphImage() {
         >
           <div style={{ display: 'flex', fontSize: 48, fontWeight: 700 }}>
             {profile.initials}
-            <span style={{ color: '#c6ff3d' }}>.</span>
+            <span style={{ color: '#f08a66' }}>.</span>
           </div>
           {profile.available && (
             <div
@@ -47,10 +47,10 @@ export default function OpengraphImage() {
                 gap: 12,
                 padding: '10px 22px',
                 fontSize: 26,
-                color: '#f2f2f2',
-                border: '1px solid #262626',
+                color: '#f1ede5',
+                border: '1px solid rgba(241,237,229,0.14)',
                 borderRadius: 999,
-                background: '#111111',
+                background: '#20242d',
               }}
             >
               <div
@@ -59,7 +59,7 @@ export default function OpengraphImage() {
                   width: 14,
                   height: 14,
                   borderRadius: 999,
-                  background: '#c6ff3d',
+                  background: '#f08a66',
                 }}
               />
               Available for work
@@ -73,7 +73,7 @@ export default function OpengraphImage() {
             style={{
               display: 'flex',
               fontSize: 32,
-              color: '#c6ff3d',
+              color: '#f08a66',
               letterSpacing: 4,
               textTransform: 'uppercase',
             }}
@@ -98,7 +98,7 @@ export default function OpengraphImage() {
               marginTop: 24,
               maxWidth: 900,
               fontSize: 34,
-              color: '#8a8a8a',
+              color: '#aaa8a6',
             }}
           >
             {profile.tagline}
@@ -106,7 +106,7 @@ export default function OpengraphImage() {
         </div>
 
         {/* Bottom row */}
-        <div style={{ display: 'flex', fontSize: 26, color: '#8a8a8a' }}>{host}</div>
+        <div style={{ display: 'flex', fontSize: 26, color: '#aaa8a6' }}>{host}</div>
       </div>
     ),
     { ...size }

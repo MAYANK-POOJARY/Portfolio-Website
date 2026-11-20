@@ -96,7 +96,10 @@ async function ProjectPageContent({ params }) {
         </Reveal>
 
         {/* Big visual */}
-        <Reveal className={styles.visual} delay={0.1}>
+        <Reveal
+          className={`${styles.visual} ${project.image ? styles.visualWithImage : ''}`}
+          delay={0.1}
+        >
           {project.image ? (
             <Image
               src={project.image}

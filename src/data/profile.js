@@ -2,7 +2,7 @@ export const profile = {
   name: 'Mayank Poojary',
   initials: 'MP',
   role: 'Full Stack Developer',
-  tagline: 'I build fast, polished and memorable web experiences.',
+  tagline: 'Building ideas into experiences that matter.',
   location: 'Mumbai, India',
   email: 'poojary.mayank@gmail.com',
   available: true, // shows the "Available for work" badge

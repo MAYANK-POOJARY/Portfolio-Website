@@ -52,13 +52,13 @@ export const metadata = {
 
 // Dark address bar on phones
 export const viewport = {
-  themeColor: '#0a0a0a',
+  themeColor: '#111319',
   colorScheme: 'dark',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body>
         <Providers>
           <ScrollProgress />

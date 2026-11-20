@@ -25,4 +25,5 @@
 .mobileLink { font: 600 clamp(2.5rem, 10vw, 5rem)/1 var(--font-display); letter-spacing: -.06em; }
 .mobileLink:hover { color: var(--accent); }
 .mobileResume { margin-top: 1.2rem; font-size: .85rem; }
+@media (max-width: 1023px) { .scrolled { backdrop-filter: none; } }
 @include respond('lg') { .links { display: flex; } .cta { display: flex; } .burger, .mobileMenu { display: none; } }

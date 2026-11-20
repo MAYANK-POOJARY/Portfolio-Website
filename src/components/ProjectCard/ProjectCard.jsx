@@ -22,7 +22,7 @@ export default function ProjectCard({ project, index }) {
           ) : (
             <span className={styles.number}>{number}</span>
           )}
-          <span className={styles.openProject}>Open case study <i>↗</i></span>
+          <span className={styles.openProject}>View project <i>↗</i></span>
         </Link>
 
         {/* Details */}

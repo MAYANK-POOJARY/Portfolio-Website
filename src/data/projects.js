@@ -22,9 +22,9 @@ export const projects = [
     ],
     year: '2026',
     role: 'Full Stack Developer',
-    liveUrl: 'https://example.com',
+    liveUrl: 'https://perplexity-w87e.onrender.com',
     githubUrl: 'https://github.com/MAYANK-POOJARY/Perplexity',
-    image: null, // later: '/projects/project-one.png'
+    image: '/project1.png', 
     color: '#f08a66', // visual accent only
     features: [
       'Real-time AI conversations with token-by-token response streaming using Socket.IO.',
@@ -69,7 +69,7 @@ export const projects = [
     liveUrl: '',
     githubUrl: 'https://github.com/MAYANK-POOJARY/AI_Battle_Arena',
 
-    image: null,
+    image: '/project2.png',
 
     color: '#8b5cf6',
 
@@ -95,9 +95,9 @@ export const projects = [
     tech: ['Next.js', 'React', 'JavaScript', 'SCSS', 'Framer Motion', 'GSAP', 'Lenis'],
     year: '2026',
     role: 'Designer & Developer',
-    liveUrl: '',
+    liveUrl: 'https://portfolio-website-one-liard-44.vercel.app/',
     githubUrl: 'https://github.com/MAYANK-POOJARY/Portfolio-Website',
-    image: null,
+    image: '/project3.png',
     color: '#f6ec5c',
     featured: true,
     features: [

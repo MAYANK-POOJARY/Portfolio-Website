@@ -60,7 +60,7 @@ export default function Hero() {
       {/* Bottom row */}
       <div className={`${styles.bottom} ${styles.reveal}`} style={{ '--delay': '0.9s' }}>
         <span>{profile.location}</span>
-        <span className={styles.coordinates}>INDEPENDENT DIGITAL PRACTICE&nbsp; · &nbsp;{profile.role}</span>
+        <span className={styles.coordinates}>THINK. ENGINEER. CREATE.</span>
         <span className={styles.scroll}>
           Scroll <i />
         </span>

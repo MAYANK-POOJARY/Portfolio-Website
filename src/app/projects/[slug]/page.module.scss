@@ -78,6 +78,10 @@
   }
 }
 
+.visualWithImage {
+  aspect-ratio: 1920 / 913;
+}
+
 .number {
   position: absolute;
   left: $space-8;
@@ -92,6 +96,7 @@
 
 .image {
   object-fit: cover;
+  object-position: center;
 }
 
 // ---------- Content ----------
